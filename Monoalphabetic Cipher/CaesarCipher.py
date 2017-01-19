@@ -9,11 +9,16 @@ import collections
 mode = input("Would you like to encrypt(e) or decrypt(d)?: ")
 message = input("Enter the message: ")
 key = input("Enter the key: ")
+"""
+Figure out the order!
+"""
 
 
 def user_input(message, key):
     try:
         validate = int(key)
+        if validate == int():
+            return True
     except ValueError:
         print("Error: The key must be an int:")
 
@@ -34,16 +39,28 @@ def caesar(rotate_string, number_to_rotate_by):
         translate(str.maketrans(string.ascii_lowercase, lower))
 
 
-if mode == "E" or "e":
-    user_input(message, key)
+def encrypt(key):
     key = int(key) * -1
-    # print(caesar(message, int(key)))
-elif mode == "D" or "d":
-    user_input(message, key)
-    # print(caesar(message, int(key)))
-else:
-    print("Error")
+    return key
 
 
-print(caesar(message, int(key)))
+def decrypt(key):
+    key = int(key) * 1
+    return key
+
+
+def main(message, key):
+    if mode == "E" or "e":
+        key = encrypt(key)
+        user_input(message, key)
+    elif mode == "D" or "d":
+        key = decrypt(key)
+        user_input(message, key)
+    else:
+        print("Error")
+
+    print(caesar(message, int(key)))
+
+
+main(message, key)
 
