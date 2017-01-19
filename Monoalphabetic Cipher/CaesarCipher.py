@@ -7,20 +7,19 @@ import string
 import collections
 
 mode = input("Would you like to encrypt(e) or decrypt(d)?: ")
-message = ""
-key = 1
+message = input("Enter the message: ")
+key = input("Enter the key: ")
 
 
-def user_input(message, key):
-    message = input("Enter the message: ")
-    key = input("Enter the key: ")
+class Input:
 
-    try:
-        validate = int(key)
-    except ValueError:
-        print("Error: The key must be an int:")
+    def user_input(message, key):
+        try:
+            validate = int(key)
+        except ValueError:
+            print("Error: The key must be an int:")
 
-    return message, key
+        return message, key
 
 
 def caesar(rotate_string, number_to_rotate_by):
@@ -38,14 +37,15 @@ def caesar(rotate_string, number_to_rotate_by):
 
 
 if mode == "E" or "e":
-    user_input(message, key)
+    Input.user_input(message, key)
     key = int(key) * -1
     # print(caesar(message, int(key)))
 elif mode == "D" or "d":
-    user_input(message, key)
+    Input.user_input(message, key)
     # print(caesar(message, int(key)))
 else:
     print("Error")
 
 
-print("Encrypted\n ", caesar(message, int(key)))
+print("Encrypted\n", caesar(message, int(key)))
+
