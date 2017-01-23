@@ -50,10 +50,10 @@ def decrypt(key):
 
 
 def main(mode, message, key):
-    if mode == "E":
+    if mode == "E" or mode == "e":
         key = encrypt(key)
         user_input(message, key)
-    elif mode == "D":
+    elif mode == "D" or mode == "d":
         key = decrypt(key)
         user_input(message, key)
     else:
