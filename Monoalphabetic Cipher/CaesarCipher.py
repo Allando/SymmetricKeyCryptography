@@ -9,9 +9,6 @@ import collections
 mode = input("Would you like to encrypt(e) or decrypt(d)?: ")
 message = input("Enter the message: ")
 key = input("Enter the key: ")
-"""
-Figure out the order!
-"""
 
 
 def user_input(message, key):
@@ -25,17 +22,17 @@ def user_input(message, key):
     return message, key
 
 
-def caesar(rotate_string, rotate_key):
+def caesar(message, key):
     upper = collections.deque(string.ascii_uppercase)
     lower = collections.deque(string.ascii_lowercase)
 
-    upper.rotate(rotate_key)
-    lower.rotate(rotate_key)
+    upper.rotate(key)
+    lower.rotate(key)
 
     upper = ''.join(list(upper))
     lower = ''.join(list(lower))
 
-    return rotate_string.translate(str.maketrans(string.ascii_uppercase, upper)). \
+    return message.translate(str.maketrans(string.ascii_uppercase, upper)). \
         translate(str.maketrans(string.ascii_lowercase, lower))
 
 
