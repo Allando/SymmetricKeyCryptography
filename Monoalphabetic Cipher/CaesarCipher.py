@@ -25,12 +25,12 @@ def user_input(message, key):
     return message, key
 
 
-def caesar(rotate_string, number_to_rotate_by):
+def caesar(rotate_string, rotate_key):
     upper = collections.deque(string.ascii_uppercase)
     lower = collections.deque(string.ascii_lowercase)
 
-    upper.rotate(number_to_rotate_by)
-    lower.rotate(number_to_rotate_by)
+    upper.rotate(rotate_key)
+    lower.rotate(rotate_key)
 
     upper = ''.join(list(upper))
     lower = ''.join(list(lower))
@@ -49,11 +49,11 @@ def decrypt(key):
     return key
 
 
-def main(message, key):
-    if mode == "E" or "e":
+def main(mode, message, key):
+    if mode == "E":
         key = encrypt(key)
         user_input(message, key)
-    elif mode == "D" or "d":
+    elif mode == "D":
         key = decrypt(key)
         user_input(message, key)
     else:
@@ -62,5 +62,5 @@ def main(message, key):
     print(caesar(message, int(key)))
 
 
-main(message, key)
+main(mode, message, key)
 
