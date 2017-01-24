@@ -70,16 +70,20 @@ def main(mode, message, key_one, key_two):
         crypto_key_one = encrypt(key_one)
         crypto_key_two = encrypt(key_two)
         user_input(message, key_one, key_two)
+
+        print("Cipher text:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
     elif mode == "D" or mode == "d":
         crypto_key_one = decrypt(key_one)
         crypto_key_two = decrypt(key_two)
         user_input(message, key_one, key_two)
+
+        print("Plaint ext:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
     else:
         print("Error")
 
     # print("First Cipher:", cipher_one(message, int(crypto_key_one)))
     # print("---------------------------------")
-    print("First and second cipher:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
+
 
 main(mode, message, key_one, key_two)
 
