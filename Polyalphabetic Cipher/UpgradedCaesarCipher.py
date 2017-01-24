@@ -77,7 +77,7 @@ def main(mode, message, key_one, key_two):
         crypto_key_two = decrypt(key_two)
         user_input(message, key_one, key_two)
 
-        print("Plaint ext:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
+        print("Plain text:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
     else:
         print("Error")
 
