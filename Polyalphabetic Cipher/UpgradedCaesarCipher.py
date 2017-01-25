@@ -2,7 +2,7 @@
 """
 Based on code from https://www.youtube.com/watch?v=vPpRkHUPX_Q
 
-So this is basically the same as the normal Caesar Cipher, except is better!!
+Not even close to be done!
 """
 
 import string
@@ -79,10 +79,7 @@ def main(mode, message, key_one, key_two):
 
         print("Plain text:", cipher_two(cipher_one(message, int(crypto_key_one)), crypto_key_two))
     else:
-        print("Error")
-
-    # print("First Cipher:", cipher_one(message, int(crypto_key_one)))
-    # print("---------------------------------")
+        print("Error: Command not recognized")
 
 
 main(mode, message, key_one, key_two)

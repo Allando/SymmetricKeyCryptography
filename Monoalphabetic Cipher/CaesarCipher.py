@@ -54,7 +54,7 @@ def main(mode, message, key):
         key = decrypt(key)
         user_input(message, key)
     else:
-        print("Error")
+        print("Error: Command not recognized")
 
     print(caesar(message, int(key)))
 
